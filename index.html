@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#fff8fa">
+	<meta name="description" content="Portafolio académico personal de Isabella Burbano.">
+	<title>Mi mundo y mis sueños | Isabella Burbano</title>
+
+	<!-- Tipografías elegantes y suaves -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<style>
+		/* Estilos generales */
+		:root {
+			--rose: #bd7188;
+			--rose-dark: #874b60;
+			--rose-light: #f7e5eb;
+			--cream: #fffaf8;
+			--gold: #c4a06a;
+			--ink: #493c41;
+			--muted: #796a70;
+			--white: #fff;
+			--shadow: 0 16px 42px rgba(139, 77, 99, .10);
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--cream);
+			font-family: 'Poppins', sans-serif;
+			font-size: 15px;
+			line-height: 1.8;
+		}
+		a { color: inherit; }
+		.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+		.section { padding: 100px 0; }
+		.section-heading { max-width: 650px; margin: 0 auto 46px; text-align: center; }
+		.eyebrow {
+			display: inline-flex; align-items: center; gap: 9px;
+			color: var(--rose); font-size: .76rem; font-weight: 600;
+			letter-spacing: .16em; text-transform: uppercase;
+		}
+		.eyebrow::before, .eyebrow::after { content: '✦'; color: var(--gold); font-size: .75rem; }
+		h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+		h2 { margin: 12px 0; color: var(--rose-dark); font-size: clamp(2rem, 4vw, 2.8rem); }
+		.section-heading p { margin: 12px 0 0; color: var(--muted); }
+
+		/* Navegación fija */
+		.site-header {
+			position: fixed; z-index: 20; inset: 0 0 auto; height: 74px;
+			background: rgba(255, 250, 248, .92); border-bottom: 1px solid rgba(189, 113, 136, .13);
+			backdrop-filter: blur(14px);
+		}
+		.nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+		.brand { color: var(--rose-dark); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.22rem; font-weight: 600; }
+		.brand span { color: var(--gold); }
+		.nav-links { display: flex; align-items: center; gap: 25px; padding: 0; margin: 0; list-style: none; }
+		.nav-links a { color: var(--ink); text-decoration: none; font-size: .82rem; transition: color .2s ease; }
+		.nav-links a:hover, .nav-links a:focus-visible { color: var(--rose); }
+		.menu-toggle {
+			display: none; width: 42px; height: 42px; padding: 9px; border: 1px solid var(--rose-light);
+			border-radius: 12px; color: var(--rose-dark); background: var(--white); cursor: pointer;
+		}
+		.menu-toggle span { display: block; height: 2px; margin: 5px 0; background: currentColor; }
+
+		/* Presentación principal */
+		.hero {
+			position: relative; overflow: hidden; min-height: 680px; padding: 132px 0 84px;
+			display: grid; align-items: center;
+			background: radial-gradient(ellipse at 82% 25%, rgba(245, 220, 229, .72), transparent 34%),
+									linear-gradient(135deg, #fffaf8 5%, #fff4f7 58%, #f9e9ee 100%);
+		}
+		.hero::before, .hero::after { position: absolute; color: rgba(196, 160, 106, .45); font-size: 2rem; content: '✧'; }
+		.hero::before { top: 22%; left: 8%; }
+		.hero::after { right: 8%; bottom: 17%; font-size: 3rem; }
+		.hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 60px; }
+		.hero-copy { max-width: 670px; }
+		.hero h1 { margin: 15px 0 20px; color: var(--rose-dark); font-size: clamp(3rem, 7vw, 5.3rem); letter-spacing: -.04em; }
+		.hero h1 em { color: var(--rose); font-weight: 500; }
+		.hero-copy p { max-width: 590px; margin: 0; color: var(--muted); }
+		.hero-copy p + p { margin-top: 10px; }
+		.hero-note { display: inline-block; margin-top: 26px; padding: 10px 17px; border: 1px solid rgba(196, 160, 106, .45); border-radius: 30px; color: var(--rose-dark); background: rgba(255,255,255,.55); font-size: .82rem; }
+		.profile-frame {
+			position: relative; width: min(310px, 100%); aspect-ratio: 1; margin: auto;
+			padding: 11px; border: 2px solid #d6ad88; border-radius: 50%;
+			background: linear-gradient(145deg, #fff, #f3dbe3); box-shadow: var(--shadow);
+		}
+		.profile-frame::before { content: '♡'; position: absolute; z-index: 2; top: 8%; right: 0; color: var(--rose); font-size: 2.5rem; transform: rotate(12deg); }
+		.profile-frame img { display: block; width: 100%; height: 100%; border: 5px solid var(--white); border-radius: 50%; object-fit: cover; background: #f7e9ed; }
+		.profile-caption { margin: 17px 0 0; color: var(--muted); text-align: center; font-size: .8rem; }
+
+		/* Aspiraciones: tarjetas de carreras */
+		.aspirations { background: var(--white); }
+		.career-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+		.career-card, .interest-card {
+			border: 1px solid rgba(189, 113, 136, .16); border-radius: 24px;
+			background: linear-gradient(145deg, #fff, #fff8fa); box-shadow: var(--shadow);
+		}
+		.career-card { padding: 32px; transition: transform .3s ease, box-shadow .3s ease; }
+		.career-card:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(139, 77, 99, .15); }
+		.icon-bubble { display: grid; width: 58px; height: 58px; place-items: center; border-radius: 19px; background: var(--rose-light); font-size: 1.75rem; }
+		.career-card h3 { margin: 18px 0 10px; color: var(--rose-dark); font-size: 1.6rem; }
+		.career-card p { margin: 0 0 15px; color: var(--muted); }
+		.career-card h4 { margin: 17px 0 8px; color: var(--ink); font-size: .88rem; }
+		.skill-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+		.skill-list li { padding: 5px 10px; border-radius: 20px; color: var(--rose-dark); background: #fbedf1; font-size: .73rem; }
+		.school { display: block; margin-top: 20px; padding-top: 16px; border-top: 1px solid #f0dfe5; color: var(--rose-dark); font-size: .86rem; }
+		.school strong { color: var(--rose); }
+
+		/* Intereses personales */
+		.interests { background: linear-gradient(180deg, #fff8fa, #fffaf8); }
+		.interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+		.interest-card { padding: 28px 24px; text-align: center; }
+		.interest-card .emoji { display: block; margin-bottom: 12px; font-size: 2.5rem; }
+		.interest-card h3 { margin: 0 0 8px; color: var(--rose-dark); font-size: 1.35rem; }
+		.interest-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+		.kindness { max-width: 760px; margin: 28px auto 0; color: var(--rose-dark); text-align: center; }
+
+		/* Emprendimiento */
+		.venture { padding-top: 85px; }
+		.venture-card {
+			position: relative; overflow: hidden; max-width: 900px; margin: 0 auto; padding: 46px;
+			border: 1px solid #efd6df; border-radius: 28px; background: linear-gradient(120deg, #f9e9ee, #fff8f5 75%); box-shadow: var(--shadow);
+		}
+		.venture-card::after { position: absolute; right: 25px; bottom: -34px; color: rgba(189, 113, 136, .13); content: '✿'; font-size: 10rem; line-height: 1; }
+		.venture-card h2 { margin-top: 8px; }
+		.venture-card p { position: relative; z-index: 1; max-width: 680px; margin-bottom: 0; color: var(--muted); }
+		.venture-tag { color: var(--rose); font-size: 1.5rem; }
+
+		/* Pie de página */
+		footer { padding: 32px 20px; color: #fff8fa; background: #805064; text-align: center; }
+		footer p { margin: 5px 0; font-size: .86rem; }
+		footer .footer-heart { color: #f5cf9c; }
+
+		/* Aparición sutil al desplazarse */
+		.reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+		.reveal.visible { opacity: 1; transform: translateY(0); }
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			*, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+			.reveal { opacity: 1; transform: none; }
+		}
+		@media (max-width: 760px) {
+			.section { padding: 76px 0; }
+			.hero { min-height: auto; padding: 124px 0 70px; }
+			.hero-grid { grid-template-columns: 1fr; gap: 37px; }
+			.hero-copy { text-align: center; margin: auto; }
+			.hero-copy p { margin-left: auto; margin-right: auto; }
+			.profile-frame { width: 245px; }
+			.career-grid { grid-template-columns: 1fr; }
+			.interest-grid { grid-template-columns: 1fr; }
+			.interest-card { padding: 23px; }
+			.venture-card { padding: 32px 25px; }
+			.menu-toggle { display: block; }
+			.nav-links {
+				position: absolute; top: 74px; left: 0; right: 0; display: none; padding: 14px 22px 20px;
+				border-bottom: 1px solid #f0dfe5; background: rgba(255,250,248,.98); box-shadow: 0 12px 20px rgba(100,50,70,.08);
+			}
+			.nav-links.open { display: grid; gap: 4px; }
+			.nav-links a { display: block; padding: 9px 5px; }
+		}
+	</style>
+</head>
+<body>
+	<!-- Menú fijo con enlaces a las secciones -->
+	<header class="site-header">
+		<nav class="container nav-wrap" aria-label="Navegación principal">
+			<a class="brand" href="#inicio">Isabella<span> ✦</span></a>
+			<button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+				<span></span><span></span><span></span>
+			</button>
+			<ul class="nav-links" id="nav-links">
+				<li><a href="#inicio">Presentación</a></li>
+				<li><a href="#aspiraciones">Aspiraciones</a></li>
+				<li><a href="#intereses">Mis intereses</a></li>
+				<li><a href="#emprendimiento">Emprendimiento</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<!-- 1. Presentación personal y espacio para la foto -->
+		<section class="hero" id="inicio">
+			<div class="container hero-grid">
+				<div class="hero-copy reveal">
+					<span class="eyebrow">Mi camino, mis sueños</span>
+					<h1>Hola, soy <em>Isabella</em></h1>
+					<p>Soy estudiante de educación media y me interesan la cosmetología y el mundo de la aviación, especialmente ser asistente de vuelo.</p>
+					<p>Me considero responsable y servicial; disfruto aprender cosas nuevas y ayudar a quienes lo necesitan.</p>
+					<p>Tengo metas claras para mi futuro y cada día busco prepararme para alcanzarlas con dedicación y entusiasmo.</p>
+					<span class="hero-note">Con ilusión por todo lo que viene <span aria-hidden="true">♡</span></span>
+				</div>
+				<div class="reveal">
+					<div class="profile-frame">
+						<!-- Coloca tu foto académica y apropiada en la misma carpeta que index.html con el nombre foto.jpg -->
+						<img src="isa.jpg.jpeg" alt="Foto de perfil">
+					</div>
+					<p class="profile-caption">Un retrato que refleja mis sueños y mi personalidad</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 2. Aspiraciones educativas en dos opciones de carrera -->
+		<section class="section aspirations" id="aspiraciones">
+			<div class="container">
+				<div class="section-heading reveal">
+					<span class="eyebrow">Lo que quiero aprender</span>
+					<h2>Mis aspiraciones educativas</h2>
+					<p>Después del colegio estoy explorando dos caminos que me entusiasman. Ambos me permitirían crecer, aprender y conectar con otras personas.</p>
+				</div>
+				<div class="career-grid">
+					<article class="career-card reveal">
+						<div class="icon-bubble" aria-hidden="true">💄</div>
+						<h3>Cosmetología</h3>
+						<p>Me atrae el cuidado de la piel y la belleza. Quiero aprender a realzar la confianza de cada persona con creatividad y responsabilidad.</p>
+						<h4>Habilidades que quiero desarrollar</h4>
+						<ul class="skill-list">
+							<li>Maquillaje</li><li>Cuidado de la piel</li><li>Atención al cliente</li>
+							<li>Presentación personal</li><li>Comunicación</li><li>Liderazgo</li>
+						</ul>
+						<span class="school">Me gustaría formarme en: <strong>Esthetic CEM</strong></span>
+					</article>
+					<article class="career-card reveal">
+						<div class="icon-bubble" aria-hidden="true">✈️</div>
+						<h3>Asistente de vuelo</h3>
+						<p>Me inspira la aviación y la posibilidad de brindar una atención amable, segura y cercana a las personas durante sus viajes.</p>
+						<h4>Habilidades que quiero desarrollar</h4>
+						<ul class="skill-list">
+							<li>Atención al cliente</li><li>Comunicación</li><li>Trabajo en equipo</li>
+							<li>Manejo del estrés</li><li>Inglés</li><li>Liderazgo</li>
+						</ul>
+						<span class="school">Me gustaría formarme en: <strong>Escuela de Aviación del Pacífico</strong></span>
+					</article>
+				</div>
+				<p class="kindness reveal">En cualquiera de estas opciones quiero fortalecer mi comunicación, mi trabajo en equipo y mi capacidad de servir con empatía. <span aria-hidden="true">✧</span></p>
+			</div>
+		</section>
+
+		<!-- 3. Intereses personales vinculados con mis metas -->
+		<section class="section interests" id="intereses">
+			<div class="container">
+				<div class="section-heading reveal">
+					<span class="eyebrow">Pequeñas cosas que me inspiran</span>
+					<h2>Mis intereses personales</h2>
+					<p>Mis gustos reflejan los dos mundos que me gustaría explorar en mi futuro.</p>
+				</div>
+				<div class="interest-grid">
+					<article class="interest-card reveal"><span class="emoji" aria-hidden="true">💄</span><h3>La belleza</h3><p>Me gusta descubrir el maquillaje y el cuidado personal como formas de creatividad y expresión.</p></article>
+					<article class="interest-card reveal"><span class="emoji" aria-hidden="true">✈️</span><h3>La aviación</h3><p>Los aviones y la idea de conocer nuevos lugares hacen que la aviación me resulte fascinante.</p></article>
+					<article class="interest-card reveal"><span class="emoji" aria-hidden="true">🤍</span><h3>Ayudar a los demás</h3><p>Me encanta acompañar y ayudar a las personas que lo necesiten, con amabilidad y disposición.</p></article>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. Presentación de mi emprendimiento -->
+		<section class="section venture" id="emprendimiento">
+			<div class="container">
+				<article class="venture-card reveal">
+					<span class="venture-tag" aria-hidden="true">✿</span>
+					<span class="eyebrow">Creatividad en acción</span>
+					<h2>Mi emprendimiento de belleza y ropa</h2>
+					<p>Me encanta maquillarme y expresar mi estilo. También tengo un emprendimiento de belleza y ropa, un espacio donde comparto las cosas que me gustan y pongo en práctica mi creatividad, mi iniciativa y mi interés por la imagen personal. Cada paso me ayuda a aprender y a soñar en grande.</p>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<!-- 5. Cierre y nombre personal -->
+	<footer>
+		<p>“Con dedicación, cada sueño encuentra su camino.” <span class="footer-heart" aria-hidden="true">♡</span></p>
+		<p>Con cariño, <strong>[Isabella Burbano]</strong></p>
+	</footer>
+
+	<!-- JavaScript: menú móvil y animaciones al aparecer en pantalla -->
+	<script>
+		const menuButton = document.querySelector('.menu-toggle');
+		const navLinks = document.querySelector('.nav-links');
+
+		menuButton.addEventListener('click', () => {
+			const isOpen = navLinks.classList.toggle('open');
+			menuButton.setAttribute('aria-expanded', String(isOpen));
+			menuButton.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+		});
+
+		navLinks.querySelectorAll('a').forEach((link) => {
+			link.addEventListener('click', () => {
+				navLinks.classList.remove('open');
+				menuButton.setAttribute('aria-expanded', 'false');
+				menuButton.setAttribute('aria-label', 'Abrir menú');
+			});
+		});
+
+		const revealItems = document.querySelectorAll('.reveal');
+		if ('IntersectionObserver' in window) {
+			const observer = new IntersectionObserver((entries, currentObserver) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						currentObserver.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.12 });
+			revealItems.forEach((item) => observer.observe(item));
+		} else {
+			revealItems.forEach((item) => item.classList.add('visible'));
+		}
+	</script>
+</body>
+</html>
